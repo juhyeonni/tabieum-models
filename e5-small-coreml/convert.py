@@ -1,7 +1,7 @@
 """Convert intfloat/multilingual-e5-small to a fixed-length Core ML fp16 package.
 
-Usage: python convert.py [sequence_length]   (default 256; output: e5small_fp16_<length>.mlpackage)
-Pinned versions: see requirements.txt (coremltools 9.0 is only validated up to torch 2.7).
+Usage: uv run --project e5-small-coreml python e5-small-coreml/convert.py [sequence_length]   (default 256; output: e5small_fp16_<length>.mlpackage)
+Pinned versions: see pyproject.toml (coremltools 9.0 is only validated up to torch 2.7).
 """
 import sys
 import numpy as np
