@@ -1,0 +1,1537 @@
+{
+ "language": "en",
+ "notes": [
+  {
+   "id": "e001",
+   "title": "Dentist",
+   "body": "Dr. Okafor, cleaning, Thursday March 14 at 9:30. Bring insurance card."
+  },
+  {
+   "id": "e002",
+   "title": "Optometrist",
+   "body": "New glasses check, Dr. Nair, Monday April 8 at 4:15 pm. Contacts prescription expires in May.\nAsk about blue light lenses."
+  },
+  {
+   "id": "e003",
+   "title": "Roasted tomato soup",
+   "body": "1.5 kg ripe tomatoes, 1 head garlic, olive oil. Roast 40 min at 200C, blend with basil and a splash of cream. Freezes well."
+  },
+  {
+   "id": "e004",
+   "title": "Shakshuka",
+   "body": "Can of crushed tomatoes, 1 onion, 1 red pepper, cumin, paprika. Simmer 10 min, crack in 4 eggs, cover until set. Serve with pita. Needs feta."
+  },
+  {
+   "id": "e005",
+   "title": "Lisbon, September",
+   "body": "Flight lands 11:20 on the 9th. Stay in Alfama, 4 nights. Must do: tram 28, pastel de nata at Manteigaria, day trip to Sintra. Buy the Viva Viagem card."
+  },
+  {
+   "id": "e006",
+   "title": "Kyoto ideas",
+   "body": "Go in November for the maple leaves. Fushimi Inari early morning, bamboo grove in Arashiyama, a night in a ryokan with onsen. Rail pass for 7 days. Budget about 2400 euros."
+  },
+  {
+   "id": "e007",
+   "title": "Oil change",
+   "body": "Last done at 62,400 km in January. Next at 72,000. Synthetic 5W-30, filter from the Bosch shelf."
+  },
+  {
+   "id": "e008",
+   "title": "Tires",
+   "body": "Switched to winter tires on Nov 3. Pressure 2.4 bar front, 2.6 rear. Rotation due in spring; shop on Elm Street has a 20% coupon."
+  },
+  {
+   "id": "e009",
+   "title": "Novels to read",
+   "body": "- The Remains of the Day\n- Piranesi\n- A Gentleman in Moscow\nLibrary hold on Piranesi ready soon."
+  },
+  {
+   "id": "e010",
+   "title": "Nonfiction queue",
+   "body": "Thinking in Systems, The Soul of a New Machine, Braiding Sweetgrass. Start with the middle one on the train. Notes go in the reading journal."
+  },
+  {
+   "id": "e011",
+   "title": "Gift ideas: Mom",
+   "body": "Birthday June 2. She mentioned a linen apron, the ceramic herb planter from the market, and a gardening class voucher. Budget 80."
+  },
+  {
+   "id": "e012",
+   "title": "Gift ideas: Dad",
+   "body": "Retires in October. Engraved pocket watch? Or the fly-fishing book plus waders. Ask Aunt Rosa what he already bought."
+  },
+  {
+   "id": "e013",
+   "title": "Kitchen faucet",
+   "body": "Drips. Replace the cartridge (Moen 1225), shut off valves under the sink first. Plumber's tape and a hex key in the garage drawer."
+  },
+  {
+   "id": "e014",
+   "title": "Bathroom toilet keeps running",
+   "body": "Flapper is probably worn. Buy a universal flapper (about 9 dollars) at the hardware store. Check the chain length, should have a little slack. Did this before in 2022 in the guest bathroom."
+  },
+  {
+   "id": "e015",
+   "title": "Leg day, Tue",
+   "body": "Squat 5x5 at 80 kg, Romanian deadlift 3x8 at 70, walking lunges 3x12. Knee felt fine. Add 2.5 kg next week."
+  },
+  {
+   "id": "e016",
+   "title": "Run log",
+   "body": "Sat: 8 km easy in 49 min. Wed: intervals, 6x400 m with 90 s rest. Sunday long run planned, 14 km. New shoes arrive Friday."
+  },
+  {
+   "id": "e017",
+   "title": "Monday sync with the platform team",
+   "body": "Release slips to the 22nd because the auth migration is not done. Priya owns the rollback plan. Ask Tomas about staging quota."
+  },
+  {
+   "id": "e018",
+   "title": "Budget review, Q3",
+   "body": "Marketing overspent by 12 percent. Cut the conference travel line, keep the design contractor. Finance wants a revised sheet by Friday. Next review in six weeks."
+  },
+  {
+   "id": "e019",
+   "title": "Mochi vet visit",
+   "body": "Annual shots and a dental check. Weight 4.3 kg, down 200 g. Switch to the senior kibble if she keeps losing. Next visit October."
+  },
+  {
+   "id": "e020",
+   "title": "Biscuit grooming",
+   "body": "Book the Saturday slot at Paws and Bubbles. Short trim, nails, ear cleaning. Cost 65. Flea treatment due on the 1st of each month."
+  },
+  {
+   "id": "e021",
+   "title": "nginx reverse proxy",
+   "body": "```\nlocation /api/ {\n  proxy_pass http://127.0.0.1:8080;\n  proxy_set_header Host $host;\n}\n```\nReload with nginx -s reload after testing with nginx -t."
+  },
+  {
+   "id": "e022",
+   "title": "SSH tunnel to the db",
+   "body": "ssh -N -L 5433:localhost:5432 deploy@bastion.example.com\nThen connect psql to port 5433. Kill with Ctrl-C. Key is ~/.ssh/id_ed25519_work."
+  },
+  {
+   "id": "e023",
+   "title": "Electric bill",
+   "body": "94.30 due on the 18th. Usage up 15% since the heater went on. Autopay is off, pay by card on the website."
+  },
+  {
+   "id": "e024",
+   "title": "Internet",
+   "body": "Fiber plan 49.99 a month, price goes up to 69.99 in December unless I call and negotiate. Contract ends Nov 30. Router model is a TP-Link AX55."
+  },
+  {
+   "id": "e025",
+   "title": "Groceries",
+   "body": "[ ] oat milk\n[ ] eggs\n[ ] spinach\n[ ] lemons\n[ ] rice\n[ ] dish soap"
+  },
+  {
+   "id": "e026",
+   "title": "Birthday party shopping (Sam, 12 guests)",
+   "body": "[ ] two pizzas order by Friday\n[ ] balloons\n[ ] chocolate cake from Marta's bakery\n[ ] paper plates and cups\n[ ] sparkling cider"
+  },
+  {
+   "id": "e027",
+   "title": "Sourdough",
+   "body": "Feed starter 12 hours before. 500 g flour, 350 g water, 10 g salt, 100 g starter. Stretch and fold every 30 min for 2 hours. Bake in a Dutch oven 20 min covered, 25 min open at 230C."
+  },
+  {
+   "id": "e028",
+   "title": "Banana bread",
+   "body": "3 overripe bananas, 75 g melted butter, 150 g sugar, 1 egg, 190 g flour, 1 tsp baking soda. 175C for 55 minutes. Walnuts optional. Grandma's trick: a spoon of yogurt."
+  },
+  {
+   "id": "e029",
+   "title": "Spanish: ser vs estar",
+   "body": "Ser for identity and permanent traits, estar for location and temporary states. Mnemonic: DOCTOR and PLACE. Practice 10 sentences before Thursday class."
+  },
+  {
+   "id": "e030",
+   "title": "Python decorators",
+   "body": "A decorator takes a function and returns a new function. Use functools.wraps to keep the name and docstring. Example: timing wrapper that prints elapsed seconds. Remember closures capture variables by reference."
+  },
+  {
+   "id": "e031",
+   "title": "Password advice",
+   "body": "Use a manager, one long passphrase for the vault, and turn on two-factor everywhere. Never reuse the email password. Print the recovery codes and keep them in the fire safe."
+  },
+  {
+   "id": "e032",
+   "title": "Flu shot",
+   "body": "At the pharmacy, any weekday after 5. No appointment needed. Bring the card. Skip if I have a fever."
+  },
+  {
+   "id": "e033",
+   "title": "Plants",
+   "body": "Monstera: water every 10 days. Fiddle leaf fig: only when top soil is dry. Succulents once a month. Fertilizer on the first Sunday."
+  },
+  {
+   "id": "e034",
+   "title": "Piano practice",
+   "body": "Scales 10 min, then Clair de Lune bars 1 to 16 hands separate. Metronome at 60. Teacher says relax the wrists. Lesson Wednesday."
+  },
+  {
+   "id": "e035",
+   "title": "Journal, Sunday night",
+   "body": "Felt scattered all week. Too many tabs open, in my head and on the screen. Next week: one big thing per day. Took a long walk by the river and it helped more than I expected."
+  },
+  {
+   "id": "e036",
+   "title": "Landlord",
+   "body": "Call about the radiator in the bedroom. Hissing and cold at the top. Mr. Haddad's number is in the contacts. Lease renewal letter also arrived."
+  },
+  {
+   "id": "e037",
+   "title": "Car insurance",
+   "body": "Renews March 3. Current premium 118 a month. Got a quote from Northgate for 96 with the same coverage. Call to cancel only after the new policy starts."
+  },
+  {
+   "id": "e038",
+   "title": "Taxes",
+   "body": "Gather: salary slips, donation receipts, the rent statement, health insurance form. Deadline April 15. Accountant Linda charges 150 flat. Book her by March."
+  },
+  {
+   "id": "e039",
+   "title": "Book club",
+   "body": "Last Friday of the month at Dana's. Next pick: a short story collection. Bring snacks, not wine, since Dana is off alcohol."
+  },
+  {
+   "id": "e040",
+   "title": "Films to watch",
+   "body": "Perfect Days, The Taste of Things, Past Lives, and that old Hitchcock about the bell tower. Rent one on Friday nights."
+  },
+  {
+   "id": "e041",
+   "title": "Project idea",
+   "body": "A tiny CLI that turns a folder of markdown notes into a weekly email digest. Use SQLite for state and cron for the schedule. Maybe 2 weekends of work."
+  },
+  {
+   "id": "e042",
+   "title": "Garage cleanup",
+   "body": "Donate the old bike and the paint cans. Hang shelves on the left wall with 4 brackets. Label bins: tools, camping, holiday. Saturday morning, 3 hours."
+  },
+  {
+   "id": "e043",
+   "title": "Antihistamine",
+   "body": "Take one cetirizine in the evening during pollen season, March to May. Do not combine with the cold syrup. Refill at the pharmacy when 5 pills are left."
+  },
+  {
+   "id": "e044",
+   "title": "Emergency fund",
+   "body": "Target: 6 months of expenses, about 14,400. Now at 9,100. Move 400 on the 1st of every month to the high-yield account."
+  },
+  {
+   "id": "e045",
+   "title": "Wedding RSVP",
+   "body": "Cousin Elena's wedding on August 23 in Porto. Reply by July 1. Hotel block code is on the invitation. Need a suit fitted, tailor is closed Mondays."
+  },
+  {
+   "id": "e046",
+   "title": "Bike",
+   "body": "Rear brake pads worn. Chain needs lube. Pump up to 60 psi. Shop on Harbor Road does a basic tune-up for 45."
+  },
+  {
+   "id": "e047",
+   "title": "Parking permit",
+   "body": "Renewal on the city website, need proof of address (utility bill) and registration. Costs 40 a year. Expires end of the month."
+  },
+  {
+   "id": "e048",
+   "title": "Chicken stock",
+   "body": "Carcass, onion, carrot, celery, bay leaf. Simmer 3 hours, never boil hard. Strain and freeze in 500 ml tubs."
+  },
+  {
+   "id": "e049",
+   "title": "Camping checklist",
+   "body": "[x] tent\n[x] sleeping bags\n[ ] headlamps\n[ ] stove fuel\n[ ] water filter\nBook site at Pine Lake before the long weekend. Fire ban is likely."
+  },
+  {
+   "id": "e050",
+   "title": "Physio",
+   "body": "Shoulder exercises twice a day: band pull-aparts 3x15, wall slides 2x10. Ice if it aches. Follow-up with Jonas on the 28th."
+  },
+  {
+   "id": "e051",
+   "title": "1:1 with Sara",
+   "body": "She wants to move to the data team next spring. Needs a mentor, suggested Ravi. I promised to write the recommendation by the 10th."
+  },
+  {
+   "id": "e052",
+   "title": "Flat viewing",
+   "body": "Saturday 11:00, Birch Street 14, third floor. Rent 1,350, deposit two months. Ask about heating costs and the pet policy."
+  },
+  {
+   "id": "e053",
+   "title": "Coffee ratios",
+   "body": "Pour over: 15 g coffee to 250 g water, 93C, 3 minutes. French press: coarser, 4 minutes. Beans from the Tamarind roaster are best within 3 weeks."
+  },
+  {
+   "id": "e054",
+   "title": "Astronomy",
+   "body": "Perseids peak on Aug 12. Drive to the hill past the reservoir, away from lights. Red flashlight, blanket, thermos. Moon sets around 1 am."
+  },
+  {
+   "id": "e055",
+   "title": "Camera settings",
+   "body": "Portraits: 85 mm, f/1.8, ISO 200. Street: 35 mm, f/8, zone focus at 3 m. Landscape: tripod, f/11, ISO 100, bracket 3 shots."
+  },
+  {
+   "id": "e056",
+   "title": "Quote to remember",
+   "body": "\"Do the next right thing.\" Heard it from Uncle Ben at the funeral lunch. Put it on the fridge."
+  },
+  {
+   "id": "e057",
+   "title": "Git undo",
+   "body": "Undo last commit but keep changes: git reset --soft HEAD~1. Discard local edits to one file: git checkout -- file. Find a lost commit: git reflog."
+  },
+  {
+   "id": "e058",
+   "title": "Docker cleanup",
+   "body": "docker system prune -a --volumes frees disk space. Check usage first with docker system df. Don't run it on the build server during the day."
+  },
+  {
+   "id": "e059",
+   "title": "Backup cron",
+   "body": "0 3 * * * rsync -a --delete ~/Documents /Volumes/Backup/Documents. Check the log on Mondays. Disk is 2 TB, 60% full."
+  },
+  {
+   "id": "e060",
+   "title": "Sleep",
+   "body": "In bed by 23:00, no screens after 22:00. Magnesium glycinate with dinner. Room at 18C. Tracked average 6h40 last week, aim for 7h30."
+  },
+  {
+   "id": "e061",
+   "title": "Aquarium",
+   "body": "Water change 25% on Sundays. Test nitrate monthly. Feed the tetras once a day, only what they finish in 2 minutes. Algae on the left glass; add a nerite snail."
+  },
+  {
+   "id": "e062",
+   "title": "Cacio e pepe",
+   "body": "Pecorino, black pepper, pasta water. Toast pepper first. Take the pan off the heat before adding cheese or it clumps."
+  },
+  {
+   "id": "e063",
+   "title": "Mushroom risotto",
+   "body": "Arborio, shallot, white wine, hot stock added a ladle at a time, 18 minutes. Finish with butter and parmesan. Dried porcini soaked in warm water for the deep flavor."
+  },
+  {
+   "id": "e064",
+   "title": "Refill",
+   "body": "Thyroid pills, prescription expires Nov 30. Ask Dr. Weiss for 90-day supply. Lab work (TSH) due in October, fasting not needed."
+  },
+  {
+   "id": "e065",
+   "title": "School meeting",
+   "body": "Parent-teacher conference Thursday 18:30, room 12. Talk about reading level and the field trip permission slip. Bring Maya's drawings."
+  },
+  {
+   "id": "e066",
+   "title": "Lawn",
+   "body": "Aerate in September, overseed with fescue, then 1 inch of water per week. Mow high, about 8 cm. Neighbor Tom has a spreader I can borrow."
+  },
+  {
+   "id": "e067",
+   "title": "Concert tickets",
+   "body": "Low Tide Choir, Nov 9, doors 19:00 at the Armory. 2 tickets, section C, 64 each. Confirmation in email from the box office. Meet Hana outside at 18:15."
+  },
+  {
+   "id": "e068",
+   "title": "Resume update",
+   "body": "Add the migration project, quantify results (cut load time 40%). Drop the 2014 internship. Ask Priya to proofread. Portfolio link must go at the top."
+  },
+  {
+   "id": "e069",
+   "title": "Hosting dinner",
+   "body": "Saturday for four. Menu: burrata starter, lamb tagine, saffron couscous, pears poached in wine. Marcus is vegetarian, swap lamb for chickpeas for him."
+  },
+  {
+   "id": "e070",
+   "title": "Flight check-in",
+   "body": "BA 214 to Edinburgh, Friday 07:05. Check in online 24 hours before. One cabin bag only. Taxi booked for 04:45."
+  },
+  {
+   "id": "e071",
+   "title": "Meditation",
+   "body": "10 minutes each morning after coffee. Box breathing: in 4, hold 4, out 4, hold 4. Streak is 12 days."
+  },
+  {
+   "id": "e072",
+   "title": "Learning Rust",
+   "body": "Ownership: each value has one owner; moves transfer it. Borrowing with & is shared, &mut is exclusive. Finish chapter 4 of the book, then rewrite the word counter."
+  },
+  {
+   "id": "e073",
+   "title": "Parcel",
+   "body": "Pick up the parcel from Mrs. Alvarez, apartment 2B, she signed for it Tuesday. It's the printer ink."
+  },
+  {
+   "id": "e074",
+   "title": "Return jacket",
+   "body": "Return the blue jacket to the store by Oct 30, receipt in the glove box."
+  },
+  {
+   "id": "e075",
+   "title": "Deep Work, notes",
+   "body": "Block 2 hours in the morning with phone in another room. Shutdown ritual at 17:30. Track hours of focused work on a paper tally. Skeptical about the 4-hour ceiling."
+  },
+  {
+   "id": "e076",
+   "title": "Haircut",
+   "body": "Saturday 10:00 with Lucia. Same as last time, number 3 on the sides, scissors on top. Cash tip."
+  },
+  {
+   "id": "e077",
+   "title": "Airline miles",
+   "body": "Expire in December. 23,400 left. Enough for a short domestic flight; check the partner site for upgrade deals."
+  },
+  {
+   "id": "e078",
+   "title": "Anniversary dinner, May 17",
+   "body": "Booked Osteria Luna, 20:00, table by the window. Bring the photo album from 2019. Flowers: peonies, order from the shop on Pine by Thursday."
+  },
+  {
+   "id": "e079",
+   "title": "Smoke detector",
+   "body": "Replace batteries in the hallway smoke alarm; it chirps every minute. 9V batteries in the junk drawer. Test button monthly. Detector is 9 years old, replace unit at 10."
+  },
+  {
+   "id": "e080",
+   "title": "Meal prep",
+   "body": "Sunday: roast chickpeas and sweet potatoes, cook quinoa, wash greens, portion into 5 boxes."
+  },
+  {
+   "id": "e081",
+   "title": "Boots resole",
+   "body": "Cobbler on Mill Lane quotes 70 and ten days. Heel is fine, the left sole is peeling. Pick up before the first snow."
+  },
+  {
+   "id": "e082",
+   "title": "Jury duty",
+   "body": "Summons for Nov 12, report to the county courthouse at 8:00. Call the line the evening before to confirm. Employer letter requested."
+  },
+  {
+   "id": "e083",
+   "title": "Birthdays",
+   "body": "Anna Mar 3, Leo Mar 19, Grandpa Apr 2, Sofia Apr 28. Cards go out a week early."
+  },
+  {
+   "id": "e084",
+   "title": "Sailing course",
+   "body": "Take the weekend course at Harbor Club in June. 2 days, 240. Need non-slip shoes and a windbreaker. Instructor: Captain Ruiz."
+  },
+  {
+   "id": "e085",
+   "title": "Router reset",
+   "body": "Hold the pinhole button 10 seconds, then log in at 192.168.1.1. Default admin password is on the sticker underneath. Change SSID after."
+  },
+  {
+   "id": "e086",
+   "title": "Tea notes",
+   "body": "Sencha 75C for 1 minute, genmaicha 85C for 2, black tea 95C for 4. Do not oversteep green tea or it turns bitter."
+  },
+  {
+   "id": "e087",
+   "title": "Donations",
+   "body": "Set up monthly 25 to the food bank. Tax receipt arrives in January. Clothes bag to Goodwill drop-off behind the library."
+  },
+  {
+   "id": "e088",
+   "title": "Presentation",
+   "body": "Talk on Friday: 10 slides max, start with the customer story. Rehearse twice, time it under 12 minutes. Clicker is in the top drawer."
+  },
+  {
+   "id": "e089",
+   "title": "Wine tasting notes",
+   "body": "Rioja crianza 2019: cherry, vanilla, soft tannins. Good value at 14. Buy a case for the cabin trip."
+  },
+  {
+   "id": "e090",
+   "title": "Laundry",
+   "body": "Wash the wool sweater cold on delicate and dry flat. Never put the silk scarf in the dryer. Vinegar in the rinse for towels that smell damp."
+  }
+ ],
+ "queries": [
+  {
+   "id": "q001",
+   "q": "Which morning is the polishing session for my molars?",
+   "relevant": "e001",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q002",
+   "q": "Okafor",
+   "relevant": "e001",
+   "type": "keyword"
+  },
+  {
+   "id": "q003",
+   "q": "When do I get my eyesight tested after work?",
+   "relevant": "e002",
+   "type": "vague"
+  },
+  {
+   "id": "q004",
+   "q": "Nair",
+   "relevant": "e002",
+   "type": "keyword"
+  },
+  {
+   "id": "q005",
+   "q": "How do I make a smooth red bisque from oven-cooked fruit?",
+   "relevant": "e003",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q006",
+   "q": "creamy warm starter I can keep in the freezer",
+   "relevant": "e003",
+   "type": "vague"
+  },
+  {
+   "id": "q007",
+   "q": "Breakfast skillet with a spicy sauce and yolks cooked right in it",
+   "relevant": "e004",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q008",
+   "q": "shakshuka",
+   "relevant": "e004",
+   "type": "keyword"
+  },
+  {
+   "id": "q009",
+   "q": "city break by the Atlantic with hills and old trolleys",
+   "relevant": "e005",
+   "type": "vague"
+  },
+  {
+   "id": "q010",
+   "q": "Sintra",
+   "relevant": "e005",
+   "type": "keyword"
+  },
+  {
+   "id": "q011",
+   "q": "Where should I stay overnight in a traditional Japanese inn and when are the autumn colors best?",
+   "relevant": "e006",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q012",
+   "q": "East Asia temple trip I want to take late in the year",
+   "relevant": "e006",
+   "type": "vague"
+  },
+  {
+   "id": "q013",
+   "q": "At what mileage should the engine lubricant be swapped next?",
+   "relevant": "e007",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q014",
+   "q": "synthetic",
+   "relevant": "e007",
+   "type": "keyword"
+  },
+  {
+   "id": "q015",
+   "q": "rubber for snowy months and what air level they need",
+   "relevant": "e008",
+   "type": "vague"
+  },
+  {
+   "id": "q016",
+   "q": "Elm",
+   "relevant": "e008",
+   "type": "keyword"
+  },
+  {
+   "id": "q017",
+   "q": "Which fiction titles am I waiting to borrow?",
+   "relevant": "e009",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q018",
+   "q": "reading list of made-up stories, one is waiting at the branch",
+   "relevant": "e009",
+   "type": "vague"
+  },
+  {
+   "id": "q019",
+   "q": "Which true-story book should I begin during my commute?",
+   "relevant": "e010",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q020",
+   "q": "Sweetgrass",
+   "relevant": "e010",
+   "type": "keyword"
+  },
+  {
+   "id": "q021",
+   "q": "present for my mother in early summer",
+   "relevant": "e011",
+   "type": "vague"
+  },
+  {
+   "id": "q022",
+   "q": "planter",
+   "relevant": "e011",
+   "type": "keyword"
+  },
+  {
+   "id": "q023",
+   "q": "What could I give my father to mark leaving his job this autumn?",
+   "relevant": "e012",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q024",
+   "q": "something for the old man's big career milestone, check with relative",
+   "relevant": "e012",
+   "type": "vague"
+  },
+  {
+   "id": "q025",
+   "q": "How do I fix the slow trickle at the tap in the cooking area?",
+   "relevant": "e013",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q026",
+   "q": "Moen",
+   "relevant": "e013",
+   "type": "keyword"
+  },
+  {
+   "id": "q027",
+   "q": "the loo makes noise all night and wastes water",
+   "relevant": "e014",
+   "type": "vague"
+  },
+  {
+   "id": "q028",
+   "q": "flapper",
+   "relevant": "e014",
+   "type": "keyword"
+  },
+  {
+   "id": "q029",
+   "q": "How heavy was my barbell session for thighs on Tuesday?",
+   "relevant": "e015",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q030",
+   "q": "lower body workout where nothing hurt",
+   "relevant": "e015",
+   "type": "vague"
+  },
+  {
+   "id": "q031",
+   "q": "How far did I jog slowly over the weekend and how long did that take?",
+   "relevant": "e016",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q032",
+   "q": "intervals",
+   "relevant": "e016",
+   "type": "keyword"
+  },
+  {
+   "id": "q033",
+   "q": "gathering where the shipping date got pushed back",
+   "relevant": "e017",
+   "type": "vague"
+  },
+  {
+   "id": "q034",
+   "q": "rollback",
+   "relevant": "e017",
+   "type": "keyword"
+  },
+  {
+   "id": "q035",
+   "q": "Which department went over its allowance and what did we decide to trim?",
+   "relevant": "e018",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q036",
+   "q": "money meeting where we decided to cut something and send a spreadsheet",
+   "relevant": "e018",
+   "type": "vague"
+  },
+  {
+   "id": "q037",
+   "q": "Is my kitten getting thinner, and which food should be swapped in?",
+   "relevant": "e019",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q038",
+   "q": "Mochi",
+   "relevant": "e019",
+   "type": "keyword"
+  },
+  {
+   "id": "q039",
+   "q": "pampering appointment for my puppy",
+   "relevant": "e020",
+   "type": "vague"
+  },
+  {
+   "id": "q040",
+   "q": "Biscuit",
+   "relevant": "e020",
+   "type": "keyword"
+  },
+  {
+   "id": "q041",
+   "q": "How do I forward web requests to an app running locally on a different port?",
+   "relevant": "e021",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q042",
+   "q": "config for sending traffic to a backend, remember to validate before restart",
+   "relevant": "e021",
+   "type": "vague"
+  },
+  {
+   "id": "q043",
+   "q": "Command to reach a remote database through a jump server from my laptop",
+   "relevant": "e022",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q044",
+   "q": "bastion",
+   "relevant": "e022",
+   "type": "keyword"
+  },
+  {
+   "id": "q045",
+   "q": "utility payment higher because of cold weather",
+   "relevant": "e023",
+   "type": "vague"
+  },
+  {
+   "id": "q046",
+   "q": "autopay",
+   "relevant": "e023",
+   "type": "keyword"
+  },
+  {
+   "id": "q047",
+   "q": "What happens to my broadband rate at the end of the year if I do nothing?",
+   "relevant": "e024",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q048",
+   "q": "should ring the provider before the cost jumps",
+   "relevant": "e024",
+   "type": "vague"
+  },
+  {
+   "id": "q049",
+   "q": "Which citrus and leafy greens did I want from the store?",
+   "relevant": "e025",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q050",
+   "q": "oat",
+   "relevant": "e025",
+   "type": "keyword"
+  },
+  {
+   "id": "q051",
+   "q": "things to get for a youngster's celebration",
+   "relevant": "e026",
+   "type": "vague"
+  },
+  {
+   "id": "q052",
+   "q": "balloons",
+   "relevant": "e026",
+   "type": "keyword"
+  },
+  {
+   "id": "q053",
+   "q": "How long to cook the fermented loaf with the lid on and then off?",
+   "relevant": "e027",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q054",
+   "q": "bread that needs a bubbly culture prepared the evening before",
+   "relevant": "e027",
+   "type": "vague"
+  },
+  {
+   "id": "q055",
+   "q": "Recipe for a sweet loaf using spotted brown fruit",
+   "relevant": "e028",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q056",
+   "q": "yogurt",
+   "relevant": "e028",
+   "type": "keyword"
+  },
+  {
+   "id": "q057",
+   "q": "language class cheat sheet about two verbs that both mean to be",
+   "relevant": "e029",
+   "type": "vague"
+  },
+  {
+   "id": "q058",
+   "q": "estar",
+   "relevant": "e029",
+   "type": "keyword"
+  },
+  {
+   "id": "q059",
+   "q": "How can an outer layer retain the initial metadata of the callable?",
+   "relevant": "e030",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q060",
+   "q": "programming concept that adds behavior around other code, with a stopwatch illustration",
+   "relevant": "e030",
+   "type": "vague"
+  },
+  {
+   "id": "q061",
+   "q": "How should I protect my accounts so a single leak doesn't expose everything?",
+   "relevant": "e031",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q062",
+   "q": "passphrase",
+   "relevant": "e031",
+   "type": "keyword"
+  },
+  {
+   "id": "q063",
+   "q": "yearly immunization before winter, drop-in",
+   "relevant": "e032",
+   "type": "vague"
+  },
+  {
+   "id": "q064",
+   "q": "pharmacy",
+   "relevant": "e032",
+   "type": "keyword"
+  },
+  {
+   "id": "q065",
+   "q": "How often should I give the big leafy jungle plant a drink?",
+   "relevant": "e033",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q066",
+   "q": "greenery care schedule",
+   "relevant": "e033",
+   "type": "vague"
+  },
+  {
+   "id": "q067",
+   "q": "What should I rehearse on the keyboard and at what tempo?",
+   "relevant": "e034",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q068",
+   "q": "metronome",
+   "relevant": "e034",
+   "type": "keyword"
+  },
+  {
+   "id": "q069",
+   "q": "reflection on feeling unfocused, plus a plan to pick a daily priority",
+   "relevant": "e035",
+   "type": "vague"
+  },
+  {
+   "id": "q070",
+   "q": "scattered",
+   "relevant": "e035",
+   "type": "keyword"
+  },
+  {
+   "id": "q071",
+   "q": "Who do I phone regarding the heating that stays cold in the room where I sleep?",
+   "relevant": "e036",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q072",
+   "q": "tenancy matter plus something wrong with warming equipment",
+   "relevant": "e036",
+   "type": "vague"
+  },
+  {
+   "id": "q073",
+   "q": "Is there a cheaper cover for my vehicle and when does the present deal lapse?",
+   "relevant": "e037",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q074",
+   "q": "Northgate",
+   "relevant": "e037",
+   "type": "keyword"
+  },
+  {
+   "id": "q075",
+   "q": "annual filing paperwork to collect and a professional to hire",
+   "relevant": "e038",
+   "type": "vague"
+  },
+  {
+   "id": "q076",
+   "q": "accountant",
+   "relevant": "e038",
+   "type": "keyword"
+  },
+  {
+   "id": "q077",
+   "q": "What should I carry to the monthly reading group and who hosts it?",
+   "relevant": "e039",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q078",
+   "q": "social evening about literature, with food restrictions",
+   "relevant": "e039",
+   "type": "vague"
+  },
+  {
+   "id": "q079",
+   "q": "Which movies are on my someday list for rentals?",
+   "relevant": "e040",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q080",
+   "q": "Hitchcock",
+   "relevant": "e040",
+   "type": "keyword"
+  },
+  {
+   "id": "q081",
+   "q": "small utility concept summarizing writings and mailing them periodically",
+   "relevant": "e041",
+   "type": "vague"
+  },
+  {
+   "id": "q082",
+   "q": "digest",
+   "relevant": "e041",
+   "type": "keyword"
+  },
+  {
+   "id": "q083",
+   "q": "What am I giving away from the storage space, including a cycle?",
+   "relevant": "e042",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q084",
+   "q": "tidy-up weekend plan for the place where the car should be",
+   "relevant": "e042",
+   "type": "vague"
+  },
+  {
+   "id": "q085",
+   "q": "What is the nightly pill for hay fever and when is it needed?",
+   "relevant": "e043",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q086",
+   "q": "cetirizine",
+   "relevant": "e043",
+   "type": "keyword"
+  },
+  {
+   "id": "q087",
+   "q": "rainy day money progress",
+   "relevant": "e044",
+   "type": "vague"
+  },
+  {
+   "id": "q088",
+   "q": "emergency",
+   "relevant": "e044",
+   "type": "keyword"
+  },
+  {
+   "id": "q089",
+   "q": "Where is my relative getting married and by when must I answer?",
+   "relevant": "e045",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q090",
+   "q": "formal event abroad requiring clothing alterations",
+   "relevant": "e045",
+   "type": "vague"
+  },
+  {
+   "id": "q091",
+   "q": "What maintenance does my two-wheeler need before the weekend ride?",
+   "relevant": "e046",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q092",
+   "q": "psi",
+   "relevant": "e046",
+   "type": "keyword"
+  },
+  {
+   "id": "q093",
+   "q": "paperwork letting me leave the vehicle on the street, lapsing soon",
+   "relevant": "e047",
+   "type": "vague"
+  },
+  {
+   "id": "q094",
+   "q": "permit",
+   "relevant": "e047",
+   "type": "keyword"
+  },
+  {
+   "id": "q095",
+   "q": "How do I make broth from leftover bones?",
+   "relevant": "e048",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q096",
+   "q": "homemade base for soups, stored in portions",
+   "relevant": "e048",
+   "type": "vague"
+  },
+  {
+   "id": "q097",
+   "q": "What outdoor gear is still unpacked for the lake trip?",
+   "relevant": "e049",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q098",
+   "q": "headlamps",
+   "relevant": "e049",
+   "type": "keyword"
+  },
+  {
+   "id": "q099",
+   "q": "rehab routine for my sore upper arm joint",
+   "relevant": "e050",
+   "type": "vague"
+  },
+  {
+   "id": "q100",
+   "q": "Jonas",
+   "relevant": "e050",
+   "type": "keyword"
+  },
+  {
+   "id": "q101",
+   "q": "Which colleague hopes to switch groups and what did I commit to producing?",
+   "relevant": "e051",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q102",
+   "q": "career chat with a direct report",
+   "relevant": "e051",
+   "type": "vague"
+  },
+  {
+   "id": "q103",
+   "q": "What are the details of the apartment tour I scheduled this weekend?",
+   "relevant": "e052",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q104",
+   "q": "deposit",
+   "relevant": "e052",
+   "type": "keyword"
+  },
+  {
+   "id": "q105",
+   "q": "how to brew a good morning cup",
+   "relevant": "e053",
+   "type": "vague"
+  },
+  {
+   "id": "q106",
+   "q": "roaster",
+   "relevant": "e053",
+   "type": "keyword"
+  },
+  {
+   "id": "q107",
+   "q": "When is the meteor shower and where is the dark spot I plan to go?",
+   "relevant": "e054",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q108",
+   "q": "night sky watching plan in summer",
+   "relevant": "e054",
+   "type": "vague"
+  },
+  {
+   "id": "q109",
+   "q": "What aperture should I choose for shots of people?",
+   "relevant": "e055",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q110",
+   "q": "tripod",
+   "relevant": "e055",
+   "type": "keyword"
+  },
+  {
+   "id": "q111",
+   "q": "a short saying from a relative that guides me",
+   "relevant": "e056",
+   "type": "vague"
+  },
+  {
+   "id": "q112",
+   "q": "fridge",
+   "relevant": "e056",
+   "type": "keyword"
+  },
+  {
+   "id": "q113",
+   "q": "How to revert my most recent save to history while keeping the work?",
+   "relevant": "e057",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q114",
+   "q": "version control rescue commands",
+   "relevant": "e057",
+   "type": "vague"
+  },
+  {
+   "id": "q115",
+   "q": "Command to reclaim storage from unused containers and images?",
+   "relevant": "e058",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q116",
+   "q": "prune",
+   "relevant": "e058",
+   "type": "keyword"
+  },
+  {
+   "id": "q117",
+   "q": "scheduled copy of my files at night to external drive",
+   "relevant": "e059",
+   "type": "vague"
+  },
+  {
+   "id": "q118",
+   "q": "rsync",
+   "relevant": "e059",
+   "type": "keyword"
+  },
+  {
+   "id": "q119",
+   "q": "What bedtime routine am I trying, and how many hours do I want?",
+   "relevant": "e060",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q120",
+   "q": "rest habits and targets",
+   "relevant": "e060",
+   "type": "vague"
+  },
+  {
+   "id": "q121",
+   "q": "How much of the tank liquid should I replace each week?",
+   "relevant": "e061",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q122",
+   "q": "nerite",
+   "relevant": "e061",
+   "type": "keyword"
+  },
+  {
+   "id": "q123",
+   "q": "Roman dish with only two flavorings, tricky cheese texture",
+   "relevant": "e062",
+   "type": "vague"
+  },
+  {
+   "id": "q124",
+   "q": "Pecorino",
+   "relevant": "e062",
+   "type": "keyword"
+  },
+  {
+   "id": "q125",
+   "q": "How do I cook creamy rice with fungi, adding liquid gradually?",
+   "relevant": "e063",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q126",
+   "q": "Italian comfort food requiring constant stirring",
+   "relevant": "e063",
+   "type": "vague"
+  },
+  {
+   "id": "q127",
+   "q": "Which medication runs out soon and what blood test is upcoming?",
+   "relevant": "e064",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q128",
+   "q": "TSH",
+   "relevant": "e064",
+   "type": "keyword"
+  },
+  {
+   "id": "q129",
+   "q": "chat with the educators regarding my daughter's progress",
+   "relevant": "e065",
+   "type": "vague"
+  },
+  {
+   "id": "q130",
+   "q": "slip",
+   "relevant": "e065",
+   "type": "keyword"
+  },
+  {
+   "id": "q131",
+   "q": "When to punch holes in the grass and sow fresh seed?",
+   "relevant": "e066",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q132",
+   "q": "yard upkeep and an offer from the guy next door",
+   "relevant": "e066",
+   "type": "vague"
+  },
+  {
+   "id": "q133",
+   "q": "Where and when is the live music night I bought two seats for?",
+   "relevant": "e067",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q134",
+   "q": "Armory",
+   "relevant": "e067",
+   "type": "keyword"
+  },
+  {
+   "id": "q135",
+   "q": "career document revisions to tidy",
+   "relevant": "e068",
+   "type": "vague"
+  },
+  {
+   "id": "q136",
+   "q": "proofread",
+   "relevant": "e068",
+   "type": "keyword"
+  },
+  {
+   "id": "q137",
+   "q": "What are we serving the guests and who skips meat?",
+   "relevant": "e069",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q138",
+   "q": "entertaining plan with one dietary exception",
+   "relevant": "e069",
+   "type": "vague"
+  },
+  {
+   "id": "q139",
+   "q": "At what hour am I being picked up to catch my plane to Scotland?",
+   "relevant": "e070",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q140",
+   "q": "Edinburgh",
+   "relevant": "e070",
+   "type": "keyword"
+  },
+  {
+   "id": "q141",
+   "q": "calm breathing habit and my current run of consistency",
+   "relevant": "e071",
+   "type": "vague"
+  },
+  {
+   "id": "q142",
+   "q": "streak",
+   "relevant": "e071",
+   "type": "keyword"
+  },
+  {
+   "id": "q143",
+   "q": "What are the rules for who controls memory in this systems language?",
+   "relevant": "e072",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q144",
+   "q": "programming study log about a strict compiler",
+   "relevant": "e072",
+   "type": "vague"
+  },
+  {
+   "id": "q145",
+   "q": "Where is my delivery that a neighbor accepted?",
+   "relevant": "e073",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q146",
+   "q": "Alvarez",
+   "relevant": "e073",
+   "type": "keyword"
+  },
+  {
+   "id": "q147",
+   "q": "need to send back clothing before a deadline",
+   "relevant": "e074",
+   "type": "vague"
+  },
+  {
+   "id": "q148",
+   "q": "receipt",
+   "relevant": "e074",
+   "type": "keyword"
+  },
+  {
+   "id": "q149",
+   "q": "What did the author suggest for protecting uninterrupted concentration time?",
+   "relevant": "e075",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q150",
+   "q": "productivity book takeaways with a cutoff routine",
+   "relevant": "e075",
+   "type": "vague"
+  },
+  {
+   "id": "q151",
+   "q": "When am I getting trimmed and what style did I ask for?",
+   "relevant": "e076",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q152",
+   "q": "Lucia",
+   "relevant": "e076",
+   "type": "keyword"
+  },
+  {
+   "id": "q153",
+   "q": "points that vanish at year end",
+   "relevant": "e077",
+   "type": "vague"
+  },
+  {
+   "id": "q154",
+   "q": "miles",
+   "relevant": "e077",
+   "type": "keyword"
+  },
+  {
+   "id": "q155",
+   "q": "Where are we celebrating our wedding day and what blooms should I buy?",
+   "relevant": "e078",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q156",
+   "q": "romantic evening plan with a sentimental item",
+   "relevant": "e078",
+   "type": "vague"
+  },
+  {
+   "id": "q157",
+   "q": "Why is the ceiling device beeping and what power source does it take?",
+   "relevant": "e079",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q158",
+   "q": "chirps",
+   "relevant": "e079",
+   "type": "keyword"
+  },
+  {
+   "id": "q159",
+   "q": "weekly batch cooking for lunches",
+   "relevant": "e080",
+   "type": "vague"
+  },
+  {
+   "id": "q160",
+   "q": "quinoa",
+   "relevant": "e080",
+   "type": "keyword"
+  },
+  {
+   "id": "q161",
+   "q": "How much will repairing the bottom of my footwear cost?",
+   "relevant": "e081",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q162",
+   "q": "leather footwear fix at a craftsman",
+   "relevant": "e081",
+   "type": "vague"
+  },
+  {
+   "id": "q163",
+   "q": "On which date must I show up at the court to serve on a panel?",
+   "relevant": "e082",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q164",
+   "q": "summons",
+   "relevant": "e082",
+   "type": "keyword"
+  },
+  {
+   "id": "q165",
+   "q": "who to greet during spring and when",
+   "relevant": "e083",
+   "type": "vague"
+  },
+  {
+   "id": "q166",
+   "q": "Grandpa",
+   "relevant": "e083",
+   "type": "keyword"
+  },
+  {
+   "id": "q167",
+   "q": "What do I need to wear for the boating lessons?",
+   "relevant": "e084",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q168",
+   "q": "water sport training in early summer",
+   "relevant": "e084",
+   "type": "vague"
+  },
+  {
+   "id": "q169",
+   "q": "How do I factory-wipe the home network box?",
+   "relevant": "e085",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q170",
+   "q": "pinhole",
+   "relevant": "e085",
+   "type": "keyword"
+  },
+  {
+   "id": "q171",
+   "q": "water temperatures for infusing leaves",
+   "relevant": "e086",
+   "type": "vague"
+  },
+  {
+   "id": "q172",
+   "q": "sencha",
+   "relevant": "e086",
+   "type": "keyword"
+  },
+  {
+   "id": "q173",
+   "q": "Where should the clothing sack go and how much am I giving each month?",
+   "relevant": "e087",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q174",
+   "q": "charitable giving setup",
+   "relevant": "e087",
+   "type": "vague"
+  },
+  {
+   "id": "q175",
+   "q": "How lengthy should my upcoming speech be, and what comes first?",
+   "relevant": "e088",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q176",
+   "q": "clicker",
+   "relevant": "e088",
+   "type": "keyword"
+  },
+  {
+   "id": "q177",
+   "q": "red bottle I liked, affordable",
+   "relevant": "e089",
+   "type": "vague"
+  },
+  {
+   "id": "q178",
+   "q": "Rioja",
+   "relevant": "e089",
+   "type": "keyword"
+  },
+  {
+   "id": "q179",
+   "q": "Can I tumble my knitted jumper or must it dry on its side?",
+   "relevant": "e090",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q180",
+   "q": "clothes-care reminders for fragile items",
+   "relevant": "e090",
+   "type": "vague"
+  }
+ ]
+}

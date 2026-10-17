@@ -1,0 +1,1197 @@
+{
+ "language": "mixed",
+ "notes": [
+  {
+   "id": "m001",
+   "title": "docker volume 백업",
+   "body": "컨테이너를 지워도 데이터가 남도록 named volume을 쓰기로 했다. 백업은 docker run --rm 으로 tar 아카이브를 만들어서 호스트의 backup 폴더에 떨궈 두는 방식이다. 복구할 때도 같은 이미지를 띄워서 압축만 풀면 된다.\n좋은 출발이었다."
+  },
+  {
+   "id": "m002",
+   "title": "docker volume 권한 오류",
+   "body": "bind mount로 붙인 폴더에서 Permission denied가 계속 났다. 컨테이너 안의 user id가 1000이 아니라서 생긴 문제였고, Dockerfile에 USER를 맞춰 주니 해결됐다. 다음엔 chown부터 확인하기."
+  },
+  {
+   "id": "m003",
+   "title": "sprint review 3월",
+   "body": "이번 sprint review에서 결제 화면 리뉴얼 demo를 했다. velocity는 32 point로 지난번보다 4 point 줄었고, 원인은 QA 지연. 다음 sprint에는 burndown chart도 같이 보여 주기로 함.\n좋은 출발이었다."
+  },
+  {
+   "id": "m004",
+   "title": "sprint review 5월",
+   "body": "sprint review 때 로그인 개편을 demo 했고 stakeholder 피드백은 대체로 좋았다. velocity는 41 point. 소셜 로그인 버튼 순서만 다시 논의하기로.\n끝내고 나니 머릿속이 한결 가벼워졌다."
+  },
+  {
+   "id": "m005",
+   "title": "git rebase 충돌",
+   "body": "feature 브랜치를 main 위로 git rebase 하다가 conflict가 세 번 연속 났다. 매번 --continue 하기 귀찮아서 git rerere를 켰더니 같은 충돌은 자동으로 해결된다.\n혹시 놓친 게 없는지 한 번 더 훑어보았다."
+  },
+  {
+   "id": "m006",
+   "title": "git rebase -i squash",
+   "body": "PR 올리기 전에 git rebase -i HEAD~5 로 커밋을 정리한다. fixup 으로 오타 수정 커밋을 합치고 squash 로 의미 있는 단위만 남기기. force push 는 --force-with-lease 로."
+  },
+  {
+   "id": "m007",
+   "title": "S3 lifecycle",
+   "body": "S3 bucket lifecycle rule: logs/ prefix, 30 days 후 Glacier, 365 days 후 expire. versioning on 이라 noncurrent version 도 따로 rule 필요. 좋은 출발이었다."
+  },
+  {
+   "id": "m008",
+   "title": "S3 CORS 설정",
+   "body": "S3 bucket CORS 에서 AllowedOrigins 에 localhost:3000 넣고 GET, PUT 만 allow. preflight 에서 403 나면 AllowedHeaders 확인."
+  },
+  {
+   "id": "m009",
+   "title": "Postgres composite index",
+   "body": "orders table 에서 (user_id, created_at) composite index 추가하니 query plan 이 seq scan 에서 index scan 으로 바뀜. EXPLAIN ANALYZE 로 확인, 0.8s -> 12ms. 조금 아쉬웠다."
+  },
+  {
+   "id": "m010",
+   "title": "autovacuum 튜닝",
+   "body": "events 테이블이 계속 부풀어서 확인해 보니 dead tuple 이 많았다. autovacuum_vacuum_scale_factor 를 0.2 에서 0.02 로 낮추고 일주일 지켜보기로 했다. pg_stat_user_tables 에서 n_dead_tup 추이를 본다."
+  },
+  {
+   "id": "m011",
+   "title": "cron job 백업 스크립트",
+   "body": "매일 새벽 3시에 돌리는 cron job 을 만들었다. 0 3 * * * /home/ju/bin/dump.sh 형태이고 로그는 /var/log/dump.log 로 보낸다. 환경변수가 cron 에서는 달라서 PATH 를 스크립트 맨 위에 직접 적어야 했다.\n좋은 출발이었다."
+  },
+  {
+   "id": "m012",
+   "title": "cron 서버 점검",
+   "body": "10분마다 서버 상태를 확인하는 cron job 추가. */10 * * * * curl -fs https://example.com/health || ./notify.sh 로 실패하면 Slack 으로 알림이 간다. 주말에는 오탐이 있어서 retry 를 두 번 넣었다."
+  },
+  {
+   "id": "m013",
+   "title": "SwiftUI binding",
+   "body": "SwiftUI 에서 부모 View 의 @State 를 자식에게 넘길 때는 @Binding 으로 받는다. $isOn 처럼 달러 기호를 붙여 전달하는 걸 자꾸 까먹음.\n별것 아닌 듯해도 쌓이면 꽤 큰 차이가 난다."
+  },
+  {
+   "id": "m014",
+   "title": "SwiftUI List 성능",
+   "body": "List 에 row 가 5천 개쯤 되면 스크롤이 버벅인다. LazyVStack 으로 바꾸고 id 를 안정적인 UUID 로 고정하니 Instruments 에서 body 재호출 횟수가 확 줄었다.\n일단 오늘은 여기까지만 하고 내일 이어서 하자."
+  },
+  {
+   "id": "m015",
+   "title": "Q3 OKR 초안",
+   "body": "Objective: 온보딩 이탈률 줄이기. KR1 가입 후 7일 retention 35% -> 45%. KR2 onboarding 완료율 60% -> 75%. KR3 첫 주 NPS 설문 응답 200건. 팀 리뷰는 금요일."
+  },
+  {
+   "id": "m016",
+   "title": "Q4 OKR infra",
+   "body": "O: infra cost 절감. KR1 AWS bill 월 $12k -> $9k. KR2 p95 latency 300ms 이하 유지. KR3 on-call alert 주당 20건 이하. Owner 는 platform team."
+  },
+  {
+   "id": "m017",
+   "title": "개인 OKR",
+   "body": "O: 영어 speaking 늘리기. KR1 주 2회 tutor session. KR2 월 1권 원서 완독. KR3 사내 demo 를 영어로 1번 발표."
+  },
+  {
+   "id": "m018",
+   "title": "retro KPT",
+   "body": "retrospective: Keep 는 daily standup 15분 컷, Problem 은 PR review 지연, Try 는 review SLA 24h 정하기. 좋은 출발이었다."
+  },
+  {
+   "id": "m019",
+   "title": "retrospective 4월",
+   "body": "4월 retrospective 에서는 Start Stop Continue 방식을 썼다. Stop 에 불필요한 회의 두 개가 올라왔고, Start 에는 on-call 인수인계 문서화가 나왔다. 다음 retro 에서 실제로 지켰는지 확인한다.\n나중에 시간 날 때 다시 한 번 살펴보기로 했다."
+  },
+  {
+   "id": "m020",
+   "title": "코딩 테스트 준비",
+   "body": "online judge 에서 medium 을 하루 세 문제씩 푼다. 이번 주는 BFS DFS 위주였고 time complexity 를 먼저 적고 code 를 짜는 습관을 들이는 중. 틀린 문제는 wrong answer note 에 따로 정리.\n끝내고 나니 머릿속이 한결 가벼워졌다."
+  },
+  {
+   "id": "m021",
+   "title": "system design 면접",
+   "body": "면접에서 URL shortener 설계가 나왔다. 먼저 requirements 를 확인하고 QPS 를 대략 계산한 뒤 base62 인코딩과 key-value store 를 제안했다. cache 와 sharding 얘기까지 갔는데 시간이 부족했다.\n조금 아쉬웠다."
+  },
+  {
+   "id": "m022",
+   "title": "offer 협상",
+   "body": "offer 받은 곳 두 군데 중 A사는 base 가 높고 B사는 stock option 이 크다. 협상할 때는 competing offer 를 근거로 sign-on bonus 를 요청해 보기. 답변 기한은 금요일까지.\n좋은 출발이었다."
+  },
+  {
+   "id": "m023",
+   "title": "Neovim 설정",
+   "body": "init.lua 에 leader 키를 space 로 바꾸고 telescope 로 파일 검색을 붙였다. LSP 는 mason 으로 설치. 저장할 때 format on save 가 돌게 autocmd 도 추가.\n좋은 출발이었다."
+  },
+  {
+   "id": "m024",
+   "title": "zsh alias",
+   "body": "~/.zshrc 에 alias gs='git status -sb', alias dc='docker compose' 를 넣었다. fzf 로 history 검색하는 ctrl-r 도 켰다. 새 터미널을 열어야 적용된다.\n잊지 말기."
+  },
+  {
+   "id": "m025",
+   "title": "docker compose depends_on",
+   "body": "docker compose 에서 depends_on 은 start 순서만 보장하고 ready 는 아님. db service 에 healthcheck 걸고 condition: service_healthy 로 api 가 기다리게 함. 솔직히 처음엔 반신반의했지만 해 보니 괜찮았다."
+  },
+  {
+   "id": "m026",
+   "title": "GitHub Actions cache",
+   "body": "GitHub Actions 에서 actions/cache 로 node_modules 대신 ~/.npm 을 cache 하니 CI 시간이 9분에서 4분으로 줄었다. key 는 package-lock.json hash."
+  },
+  {
+   "id": "m027",
+   "title": "jest mock timer",
+   "body": "jest.useFakeTimers() 로 setTimeout debounce 테스트. advanceTimersByTime(500) 호출 후 expect. async 는 flushPromises 필요."
+  },
+  {
+   "id": "m028",
+   "title": "메모리 누수 추적",
+   "body": "Node 서버가 이틀에 한 번씩 OOM 으로 죽었다. heap snapshot 을 두 번 떠서 비교해 보니 이벤트 리스너가 removeListener 없이 계속 쌓이고 있었다. 연결이 끊길 때 정리하도록 고쳤다.\n좋은 출발이었다."
+  },
+  {
+   "id": "m029",
+   "title": "grep awk 로그 분석",
+   "body": "access.log 에서 502 만 뽑아서 시간대별로 세기: grep ' 502 ' access.log | awk '{print $4}' | cut -c14-15 | sort | uniq -c. 새벽 2시에 몰려 있었다."
+  },
+  {
+   "id": "m030",
+   "title": "Figma auto layout",
+   "body": "Figma 에서 auto layout 을 쓰면 버튼 padding 이 텍스트 길이에 따라 자동으로 늘어난다. component variant 로 primary, secondary 를 묶어 두면 handoff 때 개발자가 편하다고 한다."
+  },
+  {
+   "id": "m031",
+   "title": "엑셀 XLOOKUP",
+   "body": "월별 매출 시트에서 VLOOKUP 대신 XLOOKUP 을 쓰기로 했다. 열 순서가 바뀌어도 깨지지 않는다. pivot table 로 지역별 합계를 보고 conditional formatting 으로 목표 미달 셀은 빨간색."
+  },
+  {
+   "id": "m032",
+   "title": "SQL window function",
+   "body": "ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY created_at DESC) 로 사용자별 최신 주문 한 건만 뽑는다. rn = 1 조건은 subquery 나 CTE 로 감싸야 한다."
+  },
+  {
+   "id": "m033",
+   "title": "gym 루틴",
+   "body": "월수금 gym 에서 하체, 가슴, 등 순서로 한다. 스쿼트 5x5 는 80kg 까지 올렸고 마지막 세트에 spotter 가 필요했다. 운동 끝나면 protein shake.\n좋은 출발이었다."
+  },
+  {
+   "id": "m034",
+   "title": "gym membership",
+   "body": "gym membership 6개월 결제하면 PT 2회 무료인데 3개월은 없음. monthly 는 9만원, 6개월은 총 48만원. 락커 rental 은 별도.\n좋은 출발이었다."
+  },
+  {
+   "id": "m035",
+   "title": "brunch cafe 후기",
+   "body": "주말 brunch 는 성수 쪽 cafe. avocado toast 와 flat white 시켰고 좀 비쌌다. 웨이팅 40분. 다음엔 weekday 오전에 가자."
+  },
+  {
+   "id": "m036",
+   "title": "구독 정리",
+   "body": "Netflix 는 월 17000원 Premium 에서 Standard 로 낮춤. Spotify, iCloud 50GB 는 유지. YouTube Premium 은 가족 plan 으로 갈아탈지 고민. subscription 총합 월 4만원 목표."
+  },
+  {
+   "id": "m037",
+   "title": "다익스트라 정리",
+   "body": "Dijkstra 는 priority queue 로 구현하면 O((V+E) log V). 음수 간선이 있으면 Bellman-Ford 를 써야 한다. 코딩 테스트에서는 heapq 를 쓰면 편하다.\n조금 아쉬웠다."
+  },
+  {
+   "id": "m038",
+   "title": "CAP theorem",
+   "body": "분산 시스템에서 consistency 와 availability 는 partition 이 생기면 둘 중 하나를 골라야 한다. 은행 계좌는 CP 쪽, SNS 피드는 AP 쪽이 자연스럽다. eventual consistency 도 같이 정리."
+  },
+  {
+   "id": "m039",
+   "title": "kubectl 명령 모음",
+   "body": "kubectl get pods -n staging, kubectl logs -f deploy/api, kubectl rollout undo deploy/api 로 롤백. context 바꿀 때는 kubectx 가 편하다. 헷갈리지 않게 prod 에서는 항상 --dry-run 먼저. 생각보다 손이 많이 가서 조금 지쳤다."
+  },
+  {
+   "id": "m040",
+   "title": "terraform plan 리뷰",
+   "body": "terraform plan 결과를 PR 코멘트로 자동 게시하게 했다. destroy 가 하나라도 있으면 approval 두 명 필요. state 는 S3 backend 에 두고 DynamoDB 로 lock."
+  },
+  {
+   "id": "m041",
+   "title": "Compose recomposition",
+   "body": "Jetpack Compose 에서 recomposition 이 너무 자주 일어났다. remember 와 derivedStateOf 로 불필요한 계산을 줄이고 key 를 명시. Layout Inspector 의 recomposition count 로 확인. 퇴근하기 전에 마무리하려고 서둘렀다."
+  },
+  {
+   "id": "m042",
+   "title": "React useEffect",
+   "body": "useEffect 의 dependency array 를 빼먹어서 infinite loop 가 났다. eslint 의 exhaustive-deps 경고를 무시하지 말 것. fetch 는 AbortController 로 cleanup."
+  },
+  {
+   "id": "m043",
+   "title": "CSS grid vs flex",
+   "body": "layout 은 grid, 한 줄 정렬은 flex. grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) 로 responsive card list. gap 이 margin 보다 낫다. 조금 아쉬웠다."
+  },
+  {
+   "id": "m044",
+   "title": "REST API versioning",
+   "body": "REST API 는 /v1/ prefix 로 versioning. breaking change 는 v2 로 올리고 deprecated endpoint 에는 Sunset header 를 붙인다. changelog 도 같이 공지."
+  },
+  {
+   "id": "m045",
+   "title": "blue green deploy",
+   "body": "blue/green deploy: ALB target group 을 switch 하면 downtime 0. rollback 은 target group 을 다시 blue 로. DB migration 은 backward compatible 하게 먼저."
+  },
+  {
+   "id": "m046",
+   "title": "주간 회의 20일",
+   "body": "참석: 디자인팀, 백엔드팀. 안건 1. 결제 오류율 0.8% 원인 공유. 안건 2. 앱 release 일정 조정: 3월 28일에서 4월 4일로 연기. action item 은 각자 slack 에 올리기. 다음 회의는 다음 주 화요일 오전 10시."
+  },
+  {
+   "id": "m047",
+   "title": "v2.3 release note",
+   "body": "## v2.3\n- 다크 모드 지원\n- 알림 설정 bug fix\n- 앱 시작 속도 개선 (cold start 1.8s -> 1.1s)\n배포는 TestFlight 먼저, 문제 없으면 App Store 제출.\n비슷한 경험이 있는 사람에게 조언을 구해 보자."
+  },
+  {
+   "id": "m048",
+   "title": "프로젝트 kickoff",
+   "body": "신규 추천 기능 kickoff. PM 은 민수, 개발 리드는 하은. 목표는 6주 안에 MVP, 성공 지표는 클릭률 +5%. 리스크: 데이터 pipeline 지연. weekly sync 는 목요일 4시.\n생각보다 손이 많이 가서 조금 지쳤다."
+  },
+  {
+   "id": "m049",
+   "title": "1on1 정리",
+   "body": "매니저와 1on1. 올해 성장 목표로 tech lead 경험을 쌓고 싶다고 말함. feedback: 문서화는 강점, 이해관계자 커뮤니케이션은 보완 필요. 다음 분기에 design doc 한 건 주도하기."
+  },
+  {
+   "id": "m050",
+   "title": "이력서 수정",
+   "body": "resume 에 담당 업무만 쓰지 말고 impact 를 숫자로 적기. 예: API latency 40% 개선, 월 배포 횟수 8회로 증가. GitHub 링크와 포트폴리오 PDF 도 최신화.\n예전에도 한 번 겪은 일인데 또 까먹고 있었다."
+  },
+  {
+   "id": "m051",
+   "title": "pytest fixture",
+   "body": "pytest 에서 conftest.py 에 fixture 를 두면 모든 테스트가 공유한다. scope='session' 은 DB connection 처럼 비싼 것만. parametrize 로 입력 케이스를 여러 개 돌린다."
+  },
+  {
+   "id": "m052",
+   "title": "Redis TTL",
+   "body": "Redis cache 에 TTL 300s, key 는 user:{id}:profile. cache stampede 는 jitter 로 완화. write 시에는 invalidate 말고 delete 로 간단하게."
+  },
+  {
+   "id": "m053",
+   "title": "Notion template",
+   "body": "Notion database 에 status, owner, due date property 추가하고 board view 로 task 관리. template button 으로 weekly report 생성."
+  },
+  {
+   "id": "m054",
+   "title": "deadline 관리",
+   "body": "deadline 이 금요일이면 목요일 EOD 를 internal deadline 으로. buffer 20% 를 두고, blocker 가 생기면 즉시 escalate. scope creep 은 PM 과 trade-off 로 협의."
+  },
+  {
+   "id": "m055",
+   "title": "weekend todo",
+   "body": "토요일에 세탁소 들렀다가 마트 가서 우유랑 계란 사기. 일요일에는 밀린 email 정리하고 podcast 들으면서 산책. 저녁은 delivery 말고 직접 요리하기로 했다. 다음 주 월요일 오전에 치과 예약 확인 전화도 해야 함."
+  },
+  {
+   "id": "m056",
+   "title": "클린 아키텍처 독서",
+   "body": "Clean Architecture 3장까지 읽었다. dependency rule, 즉 의존성은 항상 안쪽으로만 향해야 한다는 부분이 인상적. 우리 서비스의 controller 가 db 모델을 직접 import 하는 부분을 고쳐야겠다."
+  },
+  {
+   "id": "m057",
+   "title": "pandas groupby",
+   "body": "pandas 에서 df.groupby('region')['sales'].sum() 으로 지역별 합계. as_index=False 를 주면 DataFrame 으로 나온다. 결측치는 fillna(0) 하기 전에 원인부터 확인."
+  },
+  {
+   "id": "m058",
+   "title": "Xcode signing 에러",
+   "body": "Xcode 에서 Provisioning profile doesn't include signing certificate 에러. Apple Developer 사이트에서 profile 을 다시 생성하고 Automatically manage signing 을 켜니 해결. 다시 확인할 것."
+  },
+  {
+   "id": "m059",
+   "title": "JWT 만료",
+   "body": "access token 은 15분, refresh token 은 14일. refresh token rotation 을 켜서 재사용 감지 시 전체 session 을 revoke. localStorage 대신 httpOnly cookie 에 저장. 좋은 출발이었다."
+  },
+  {
+   "id": "m060",
+   "title": "Grafana alert",
+   "body": "Grafana 에서 error rate 5분 평균이 2% 를 넘으면 PagerDuty 로 alert. threshold 는 일단 보수적으로 잡고 noisy 하면 조정. runbook 링크를 alert 메시지에 포함."
+  },
+  {
+   "id": "m061",
+   "title": "pre-commit hook",
+   "body": "pre-commit 에 prettier, eslint, commitlint 걸어 둠. husky 대신 lefthook 쓰니 설치가 빠르다. --no-verify 는 긴급할 때만."
+  },
+  {
+   "id": "m062",
+   "title": "A/B test 결과",
+   "body": "checkout button 문구 A/B test. variant B 'Buy now' 가 conversion +3.2%, p-value 0.03. sample size 는 충분했고 novelty effect 는 2주 더 관찰."
+  },
+  {
+   "id": "m063",
+   "title": "user interview 인사이트",
+   "body": "user interview 5명. pain point: onboarding 이 너무 길다, notification 이 많다. persona 는 power user 와 casual user 로 나눔. 다음엔 usability test. 아직 확실하지 않은 부분은 물음표로 남겨 둔다."
+  },
+  {
+   "id": "m064",
+   "title": "출근길 podcast",
+   "body": "지하철에서 tech podcast 를 듣는다. 이번 주는 대규모 서비스의 장애 사례 에피소드가 흥미로웠다. 배속은 1.5x 로 듣고, 좋은 구절은 Notion 에 메모."
+  },
+  {
+   "id": "m065",
+   "title": "Lambda cold start",
+   "body": "Lambda 함수의 cold start 가 3초 가까이 걸렸다. 패키지 크기를 줄이고 provisioned concurrency 를 켜니 200ms 대로 내려왔다. 비용은 월 몇 달러 늘어남.\n예전에도 한 번 겪은 일인데 또 까먹고 있었다."
+  },
+  {
+   "id": "m066",
+   "title": "ssh config",
+   "body": "~/.ssh/config 에 Host prod 를 만들어 두면 ssh prod 한 줄로 접속된다. ProxyJump 로 bastion 을 거치고 IdentityFile 은 별도 키로 분리. known_hosts 경고가 나면 ssh-keygen -R."
+  },
+  {
+   "id": "m067",
+   "title": "README 작성 규칙",
+   "body": "# README\n- 프로젝트 소개 한 줄\n- Quick start: `make setup && make run`\n- 환경변수 표\n- Contributing 링크\n배지는 CI status 만 남긴다."
+  },
+  {
+   "id": "m068",
+   "title": "feature flag 롤아웃",
+   "body": "feature flag 로 신규 결제 화면을 5% -> 25% -> 100% 단계적으로 rollout. 에러율이 올라가면 kill switch 로 즉시 off. 플래그는 출시 후 2주 안에 제거.\n솔직히 처음엔 반신반의했지만 해 보니 괜찮았다."
+  },
+  {
+   "id": "m069",
+   "title": "SQL join 정리",
+   "body": "INNER JOIN 은 교집합, LEFT JOIN 은 왼쪽 전부 유지. 조인 키에 NULL 이 있으면 매칭 안 됨. 중복 키가 있으면 row 가 곱해져서 count 가 부풀려진다.\n옆자리 동료에게도 한번 물어봐야겠다."
+  },
+  {
+   "id": "m070",
+   "title": "출장 expense",
+   "body": "출장 expense report 는 receipt 사진을 첨부해서 월말 전까지 제출. 항공권은 사전 approval 필요하고 hotel 은 1박 15만원 limit.\n좋은 출발이었다."
+  }
+ ],
+ "queries": [
+  {
+   "id": "q001",
+   "q": "컨테이너가 사라져도 자료를 보존하려고 만든 저장 공간의 사본을 받아 두는 법",
+   "relevant": "m001",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q002",
+   "q": "tar 백업",
+   "relevant": "m001",
+   "type": "keyword"
+  },
+  {
+   "id": "q003",
+   "q": "연결한 호스트 디렉터리에 쓰려 하면 접근이 거부되던 원인과 해결",
+   "relevant": "m002",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q004",
+   "q": "파일 쓰기가 막혀서 한참 헤맸던 일",
+   "relevant": "m002",
+   "type": "vague"
+  },
+  {
+   "id": "q005",
+   "q": "velocity 32",
+   "relevant": "m003",
+   "type": "keyword"
+  },
+  {
+   "id": "q006",
+   "q": "품질 검증 일정이 늦어져서 처리량이 감소했다는 기록",
+   "relevant": "m003",
+   "type": "vague"
+  },
+  {
+   "id": "q007",
+   "q": "이해관계자들이 인증 화면 개편 시연을 보고 대체로 호의적이었다는 기록",
+   "relevant": "m004",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q008",
+   "q": "소셜 로그인",
+   "relevant": "m004",
+   "type": "keyword"
+  },
+  {
+   "id": "q009",
+   "q": "같은 병합 충돌을 반복해서 풀지 않게 해 주는 기능을 켠 일",
+   "relevant": "m005",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q010",
+   "q": "되풀이되는 수고를 줄이는 버전 관리 설정을 발견함",
+   "relevant": "m005",
+   "type": "vague"
+  },
+  {
+   "id": "q011",
+   "q": "fixup squash",
+   "relevant": "m006",
+   "type": "keyword"
+  },
+  {
+   "id": "q012",
+   "q": "리뷰 요청 전에 이력을 깔끔하게 다듬는 절차",
+   "relevant": "m006",
+   "type": "vague"
+  },
+  {
+   "id": "q013",
+   "q": "오래된 로그 객체를 저렴한 보관 등급으로 옮기고 일 년 뒤 지우는 규칙",
+   "relevant": "m007",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q014",
+   "q": "Glacier expire",
+   "relevant": "m007",
+   "type": "keyword"
+  },
+  {
+   "id": "q015",
+   "q": "브라우저에서 다른 출처로 업로드할 때 사전 요청이 거절되면 헤더 허용 목록을 점검",
+   "relevant": "m008",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q016",
+   "q": "프런트 개발 중 외부 저장소 접근이 막혔던 경험",
+   "relevant": "m008",
+   "type": "vague"
+  },
+  {
+   "id": "q017",
+   "q": "EXPLAIN ANALYZE",
+   "relevant": "m009",
+   "type": "keyword"
+  },
+  {
+   "id": "q018",
+   "q": "느리던 조회 응답이 수백 배 줄어든 개선 사례",
+   "relevant": "m009",
+   "type": "vague"
+  },
+  {
+   "id": "q019",
+   "q": "디스크 사용량이 불어나는 표의 죽은 행 정리 주기를 더 촘촘하게 바꿈",
+   "relevant": "m010",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q020",
+   "q": "n_dead_tup",
+   "relevant": "m010",
+   "type": "keyword"
+  },
+  {
+   "id": "q021",
+   "q": "스케줄러에서는 평소 쉘과 환경이 달라서 경로를 명시해야 했던 점",
+   "relevant": "m011",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q022",
+   "q": "한밤중에 내용을 파일로 내보내도록 예약해 둔 작업",
+   "relevant": "m011",
+   "type": "vague"
+  },
+  {
+   "id": "q023",
+   "q": "10분마다 점검",
+   "relevant": "m012",
+   "type": "keyword"
+  },
+  {
+   "id": "q024",
+   "q": "응답이 없을 때 메신저로 경고를 받는 주기적 확인",
+   "relevant": "m012",
+   "type": "vague"
+  },
+  {
+   "id": "q025",
+   "q": "상위 화면의 상태 값을 하위 화면이 바꿀 수 있게 연결하는 방법",
+   "relevant": "m013",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q026",
+   "q": "@Binding",
+   "relevant": "m013",
+   "type": "keyword"
+  },
+  {
+   "id": "q027",
+   "q": "수천 줄짜리 목록에서 화면 넘길 때 끊기던 문제를 고친 이야기",
+   "relevant": "m014",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q028",
+   "q": "긴 스크롤 화면이 끊겨서 계측 도구를 켜 본 일",
+   "relevant": "m014",
+   "type": "vague"
+  },
+  {
+   "id": "q029",
+   "q": "retention 45%",
+   "relevant": "m015",
+   "type": "keyword"
+  },
+  {
+   "id": "q030",
+   "q": "신규 사용자가 초반에 떠나는 비율 개선을 위한 분기 목표",
+   "relevant": "m015",
+   "type": "vague"
+  },
+  {
+   "id": "q031",
+   "q": "클라우드 청구 금액을 낮추면서 응답 지연은 유지하려는 분기 목표",
+   "relevant": "m016",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q032",
+   "q": "AWS bill",
+   "relevant": "m016",
+   "type": "keyword"
+  },
+  {
+   "id": "q033",
+   "q": "외국어 말하기 실력을 올리려는 나만의 목표 세 가지",
+   "relevant": "m017",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q034",
+   "q": "독서와 모임 발표로 어학 능력 키우기 계획",
+   "relevant": "m017",
+   "type": "vague"
+  },
+  {
+   "id": "q035",
+   "q": "KPT",
+   "relevant": "m018",
+   "type": "keyword"
+  },
+  {
+   "id": "q036",
+   "q": "팀 회고에서 코드 검토가 늦어지는 문제를 해결하려는 시도",
+   "relevant": "m018",
+   "type": "vague"
+  },
+  {
+   "id": "q037",
+   "q": "사월 팀 돌아보기 모임에서 없애기로 한 모임과 새로 시작할 인수인계 정리",
+   "relevant": "m019",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q038",
+   "q": "Start Stop Continue",
+   "relevant": "m019",
+   "type": "keyword"
+  },
+  {
+   "id": "q039",
+   "q": "채용 과정의 알고리즘 시험에 대비해 매일 몇 문제를 푸는 루틴",
+   "relevant": "m020",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q040",
+   "q": "그래프 탐색 위주로 풀이 연습을 이어가는 중",
+   "relevant": "m020",
+   "type": "vague"
+  },
+  {
+   "id": "q041",
+   "q": "URL shortener",
+   "relevant": "m021",
+   "type": "keyword"
+  },
+  {
+   "id": "q042",
+   "q": "짧은 주소 서비스를 구상해 보라는 문제를 받고 시간에 쫓긴 날",
+   "relevant": "m021",
+   "type": "vague"
+  },
+  {
+   "id": "q043",
+   "q": "입사 제안 두 개를 비교하며 보너스를 달라고 부탁할 계획",
+   "relevant": "m022",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q044",
+   "q": "sign-on bonus",
+   "relevant": "m022",
+   "type": "keyword"
+  },
+  {
+   "id": "q045",
+   "q": "편집기에서 퍼지 검색 플러그인과 저장 시 자동 정렬을 설정한 날",
+   "relevant": "m023",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q046",
+   "q": "터미널 에디터 환경을 내 손에 맞게 꾸민 기록",
+   "relevant": "m023",
+   "type": "vague"
+  },
+  {
+   "id": "q047",
+   "q": "alias dc",
+   "relevant": "m024",
+   "type": "keyword"
+  },
+  {
+   "id": "q048",
+   "q": "자주 치는 긴 명령을 짧은 글자로 줄이는 쉘 꾸미기",
+   "relevant": "m024",
+   "type": "vague"
+  },
+  {
+   "id": "q049",
+   "q": "컨테이너 기동 순서만 맞추면 안 되고 준비 완료까지 기다리게 해야 하는 이유",
+   "relevant": "m025",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q050",
+   "q": "service_healthy",
+   "relevant": "m025",
+   "type": "keyword"
+  },
+  {
+   "id": "q051",
+   "q": "자동 빌드 파이프라인에서 의존성 내려받기를 재사용해 소요 시간을 반으로 줄임",
+   "relevant": "m026",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q052",
+   "q": "기다리는 시간이 단축된 자동화 개선",
+   "relevant": "m026",
+   "type": "vague"
+  },
+  {
+   "id": "q053",
+   "q": "useFakeTimers",
+   "relevant": "m027",
+   "type": "keyword"
+  },
+  {
+   "id": "q054",
+   "q": "기다림이 들어간 함수를 실제로 안 기다리고 검증하는 요령",
+   "relevant": "m027",
+   "type": "vague"
+  },
+  {
+   "id": "q055",
+   "q": "서버가 며칠마다 자꾸 다운되던 범인은 해제되지 않은 구독자",
+   "relevant": "m028",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q056",
+   "q": "heap snapshot",
+   "relevant": "m028",
+   "type": "keyword"
+  },
+  {
+   "id": "q057",
+   "q": "웹 서버 기록에서 게이트웨이 오류만 걸러 시간별 건수를 센 한 줄 명령",
+   "relevant": "m029",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q058",
+   "q": "특정 시각에 오류가 몰린다는 걸 파이프로 확인",
+   "relevant": "m029",
+   "type": "vague"
+  },
+  {
+   "id": "q059",
+   "q": "Figma auto layout",
+   "relevant": "m030",
+   "type": "keyword"
+  },
+  {
+   "id": "q060",
+   "q": "디자인 도구에서 글자 수에 맞춰 늘어나는 상자를 만들면 전달이 쉬워짐",
+   "relevant": "m030",
+   "type": "vague"
+  },
+  {
+   "id": "q061",
+   "q": "열 위치가 바뀌어도 값을 찾아오는 함수로 갈아타고 목표 못 미친 칸을 붉게",
+   "relevant": "m031",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q062",
+   "q": "XLOOKUP",
+   "relevant": "m031",
+   "type": "keyword"
+  },
+  {
+   "id": "q063",
+   "q": "고객마다 가장 최근 구매 하나만 골라내는 질의문 작성법",
+   "relevant": "m032",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q064",
+   "q": "그룹 안에서 순번을 매겨 첫 줄만 남기는 쿼리 패턴",
+   "relevant": "m032",
+   "type": "vague"
+  },
+  {
+   "id": "q065",
+   "q": "스쿼트 5x5",
+   "relevant": "m033",
+   "type": "keyword"
+  },
+  {
+   "id": "q066",
+   "q": "일주일에 세 번 근력 운동 순서를 짠 계획",
+   "relevant": "m033",
+   "type": "vague"
+  },
+  {
+   "id": "q067",
+   "q": "헬스장 장기 등록 시 개인 지도 두 번 서비스와 총 금액",
+   "relevant": "m034",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q068",
+   "q": "PT 무료",
+   "relevant": "m034",
+   "type": "keyword"
+  },
+  {
+   "id": "q069",
+   "q": "휴일 늦은 아침 식사로 갔던 가게에서 오래 기다렸고 가격이 부담스러웠다",
+   "relevant": "m035",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q070",
+   "q": "비싸고 줄이 길었던 외식 경험, 평일에 다시 갈 생각",
+   "relevant": "m035",
+   "type": "vague"
+  },
+  {
+   "id": "q071",
+   "q": "Netflix Standard",
+   "relevant": "m036",
+   "type": "keyword"
+  },
+  {
+   "id": "q072",
+   "q": "매달 나가는 정기 결제를 줄여 가계부 부담을 덜려는 계획",
+   "relevant": "m036",
+   "type": "vague"
+  },
+  {
+   "id": "q073",
+   "q": "최단 경로를 구할 때 간선 가중치가 마이너스면 다른 방법이 필요하다는 점",
+   "relevant": "m037",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q074",
+   "q": "Bellman-Ford",
+   "relevant": "m037",
+   "type": "keyword"
+  },
+  {
+   "id": "q075",
+   "q": "네트워크가 갈라질 때 일관성과 가용성 중 무엇을 택할지 사례로 설명",
+   "relevant": "m038",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q076",
+   "q": "여러 대로 나눠진 구조의 근본적인 양자택일 문제",
+   "relevant": "m038",
+   "type": "vague"
+  },
+  {
+   "id": "q077",
+   "q": "rollout undo",
+   "relevant": "m039",
+   "type": "keyword"
+  },
+  {
+   "id": "q078",
+   "q": "운영 클러스터에서 실수를 피하려고 시험 실행부터 하라는 메모",
+   "relevant": "m039",
+   "type": "vague"
+  },
+  {
+   "id": "q079",
+   "q": "인프라 변경 예고 결과를 요청 글에 자동으로 남기고 삭제가 포함되면 승인자를 늘림",
+   "relevant": "m040",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q080",
+   "q": "DynamoDB lock",
+   "relevant": "m040",
+   "type": "keyword"
+  },
+  {
+   "id": "q081",
+   "q": "안드로이드 선언형 화면이 필요 이상으로 다시 그려지는 현상 줄이기",
+   "relevant": "m041",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q082",
+   "q": "같은 값을 계속 새로 구하지 않도록 기억해 두는 장치를 넣은 기록",
+   "relevant": "m041",
+   "type": "vague"
+  },
+  {
+   "id": "q083",
+   "q": "AbortController",
+   "relevant": "m042",
+   "type": "keyword"
+  },
+  {
+   "id": "q084",
+   "q": "무한 반복 호출이 생긴 이유는 의존 목록 누락이었다",
+   "relevant": "m042",
+   "type": "vague"
+  },
+  {
+   "id": "q085",
+   "q": "카드 목록을 화면 폭에 따라 칸 수가 자동으로 변하게 만드는 선언",
+   "relevant": "m043",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q086",
+   "q": "minmax 240px",
+   "relevant": "m043",
+   "type": "keyword"
+  },
+  {
+   "id": "q087",
+   "q": "인터페이스를 호환 안 되게 바꿀 땐 경로의 번호를 올리고 폐기 예정 표시를 넣는다",
+   "relevant": "m044",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q088",
+   "q": "외부 연동 규격이 바뀔 때 사용자에게 알리는 방식",
+   "relevant": "m044",
+   "type": "vague"
+  },
+  {
+   "id": "q089",
+   "q": "blue green",
+   "relevant": "m045",
+   "type": "keyword"
+  },
+  {
+   "id": "q090",
+   "q": "두 벌의 환경을 번갈아 켜서 무중단으로 갈아끼우는 전략",
+   "relevant": "m045",
+   "type": "vague"
+  },
+  {
+   "id": "q091",
+   "q": "출시를 일주일 미룬다는 결정과 오류 발생 비율을 공유한 모임 기록",
+   "relevant": "m046",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q092",
+   "q": "action item",
+   "relevant": "m046",
+   "type": "keyword"
+  },
+  {
+   "id": "q093",
+   "q": "어두운 테마와 시작 시간 단축이 들어간 버전 변경 사항 정리",
+   "relevant": "m047",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q094",
+   "q": "시험 배포를 먼저 하고 이상 없으면 스토어에 올리는 흐름",
+   "relevant": "m047",
+   "type": "vague"
+  },
+  {
+   "id": "q095",
+   "q": "MVP 클릭률",
+   "relevant": "m048",
+   "type": "keyword"
+  },
+  {
+   "id": "q096",
+   "q": "새 개인화 기능 착수 모임에서 정한 기간과 성과 기준",
+   "relevant": "m048",
+   "type": "vague"
+  },
+  {
+   "id": "q097",
+   "q": "상사와 면담에서 기술 리더 역할을 해 보고 싶다고 밝힌 내용",
+   "relevant": "m049",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q098",
+   "q": "design doc",
+   "relevant": "m049",
+   "type": "keyword"
+  },
+  {
+   "id": "q099",
+   "q": "경력 문서에 한 일을 나열하기보다 성과를 수치로 보여 주라는 조언",
+   "relevant": "m050",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q100",
+   "q": "지원서류를 다듬을 때 기억해 둘 요령",
+   "relevant": "m050",
+   "type": "vague"
+  },
+  {
+   "id": "q101",
+   "q": "conftest parametrize",
+   "relevant": "m051",
+   "type": "keyword"
+  },
+  {
+   "id": "q102",
+   "q": "여러 입력값으로 같은 검증을 반복하고 준비물을 공용으로 두는 방법",
+   "relevant": "m051",
+   "type": "vague"
+  },
+  {
+   "id": "q103",
+   "q": "동시에 만료되어 원본 저장소로 요청이 몰리는 현상을 무작위 지연으로 완화",
+   "relevant": "m052",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q104",
+   "q": "cache stampede",
+   "relevant": "m052",
+   "type": "keyword"
+  },
+  {
+   "id": "q105",
+   "q": "문서 도구에서 담당자와 마감일 칸을 만들어 칸반으로 업무를 보는 법",
+   "relevant": "m053",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q106",
+   "q": "주간 보고서를 버튼 하나로 만들어 두는 편의",
+   "relevant": "m053",
+   "type": "vague"
+  },
+  {
+   "id": "q107",
+   "q": "EOD buffer",
+   "relevant": "m054",
+   "type": "keyword"
+  },
+  {
+   "id": "q108",
+   "q": "마감을 앞당겨 잡고 막히면 바로 위에 알리는 습관",
+   "relevant": "m054",
+   "type": "vague"
+  },
+  {
+   "id": "q109",
+   "q": "휴일에 장을 보고 편지함을 비우며 배달 대신 요리하기로 한 계획",
+   "relevant": "m055",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q110",
+   "q": "치과 예약",
+   "relevant": "m055",
+   "type": "keyword"
+  },
+  {
+   "id": "q111",
+   "q": "책에서 소스 간 참조 방향이 중심부로만 가야 한다는 원칙을 읽고 우리 코드를 돌아봄",
+   "relevant": "m056",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q112",
+   "q": "독서 중 현재 프로젝트의 구조적 결함이 떠올랐다",
+   "relevant": "m056",
+   "type": "vague"
+  },
+  {
+   "id": "q113",
+   "q": "as_index",
+   "relevant": "m057",
+   "type": "keyword"
+  },
+  {
+   "id": "q114",
+   "q": "표 형태 자료를 구역 단위로 묶어 더하는 파이썬 방법",
+   "relevant": "m057",
+   "type": "vague"
+  },
+  {
+   "id": "q115",
+   "q": "애플 앱 빌드 때 인증서가 맞지 않는다는 오류를 프로파일 재발급으로 해결",
+   "relevant": "m058",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q116",
+   "q": "Provisioning profile",
+   "relevant": "m058",
+   "type": "keyword"
+  },
+  {
+   "id": "q117",
+   "q": "로그인 인증 증표의 유효 기간을 짧게 두고 재발급용은 길게, 탈취 징후면 모두 무효화",
+   "relevant": "m059",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q118",
+   "q": "브라우저 저장 위치를 바꿔 탈취 위험을 낮추자는 보안 메모",
+   "relevant": "m059",
+   "type": "vague"
+  },
+  {
+   "id": "q119",
+   "q": "PagerDuty runbook",
+   "relevant": "m060",
+   "type": "keyword"
+  },
+  {
+   "id": "q120",
+   "q": "문턱값을 넘을 때 담당자 호출 설정을 조심스럽게 시작",
+   "relevant": "m060",
+   "type": "vague"
+  },
+  {
+   "id": "q121",
+   "q": "커밋 직전에 서식 검사를 자동으로 돌리는 도구로 설치 속도가 더 빠른 쪽을 선택",
+   "relevant": "m061",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q122",
+   "q": "lefthook",
+   "relevant": "m061",
+   "type": "keyword"
+  },
+  {
+   "id": "q123",
+   "q": "구매 버튼 문구 두 가지를 비교한 실험에서 새 문구의 전환이 3% 가량 높았다",
+   "relevant": "m062",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q124",
+   "q": "통계적 유의성은 확보했으나 신기함 효과를 확인하려 더 지켜보는 중",
+   "relevant": "m062",
+   "type": "vague"
+  },
+  {
+   "id": "q125",
+   "q": "pain point persona",
+   "relevant": "m063",
+   "type": "keyword"
+  },
+  {
+   "id": "q126",
+   "q": "사용자 다섯 명을 만나 불편한 점을 듣고 유형을 나눈 결과",
+   "relevant": "m063",
+   "type": "vague"
+  },
+  {
+   "id": "q127",
+   "q": "통근 중 오디오 방송으로 큰 서비스의 사고 이야기를 들은 감상",
+   "relevant": "m064",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q128",
+   "q": "podcast 1.5x",
+   "relevant": "m064",
+   "type": "keyword"
+  },
+  {
+   "id": "q129",
+   "q": "서버리스 함수가 처음 깨어날 때 지연이 길던 문제를 미리 데워 두는 설정으로 해결",
+   "relevant": "m065",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q130",
+   "q": "초기 응답 시간을 줄이는 대신 요금이 조금 올라간 선택",
+   "relevant": "m065",
+   "type": "vague"
+  },
+  {
+   "id": "q131",
+   "q": "ProxyJump bastion",
+   "relevant": "m066",
+   "type": "keyword"
+  },
+  {
+   "id": "q132",
+   "q": "중간 경유 서버를 거쳐 원격 접속을 짧은 이름으로 단축",
+   "relevant": "m066",
+   "type": "vague"
+  },
+  {
+   "id": "q133",
+   "q": "저장소 첫 안내 문서에 넣을 항목과 빠른 시작 명령 규칙",
+   "relevant": "m067",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q134",
+   "q": "make setup",
+   "relevant": "m067",
+   "type": "keyword"
+  },
+  {
+   "id": "q135",
+   "q": "새 기능을 일부 사용자에게만 점진적으로 열고 문제 시 즉시 끄는 스위치, 이후 정리",
+   "relevant": "m068",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q136",
+   "q": "위험을 줄이며 조금씩 공개하고 나중에 청소하는 운영 방식",
+   "relevant": "m068",
+   "type": "vague"
+  },
+  {
+   "id": "q137",
+   "q": "LEFT JOIN",
+   "relevant": "m069",
+   "type": "keyword"
+  },
+  {
+   "id": "q138",
+   "q": "합치다 보니 건수가 비정상적으로 늘어난 원인",
+   "relevant": "m069",
+   "type": "vague"
+  },
+  {
+   "id": "q139",
+   "q": "업무 여행 비용 정산은 영수증 사진을 붙여 월 마감 전에 내야 하고 숙박 상한이 있음",
+   "relevant": "m070",
+   "type": "paraphrase"
+  },
+  {
+   "id": "q140",
+   "q": "expense report",
+   "relevant": "m070",
+   "type": "keyword"
+  }
+ ]
+}
