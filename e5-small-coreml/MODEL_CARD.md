@@ -74,6 +74,8 @@ Per-tensor palettization shrinks the file (8-bit 112 MB, 6-bit 84 MB, 4-bit 56 M
 
 ## Reproduce the conversion
 
+The tooling is in [juhyeonni/tabieum-models](https://github.com/juhyeonni/tabieum-models). From a clone of it:
+
 ```
 uv sync --project e5-small-coreml
 uv run --project e5-small-coreml python e5-small-coreml/convert.py 256
