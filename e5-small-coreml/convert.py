@@ -1,6 +1,7 @@
 """Convert intfloat/multilingual-e5-small to a fixed-length Core ML fp16 package.
 
-Usage: uv run --project e5-small-coreml python e5-small-coreml/convert.py [sequence_length]   (default 256; output: e5small_fp16_<length>.mlpackage)
+Usage: uv run --project e5-small-coreml python e5-small-coreml/convert.py [sequence_length] [fp16|fp32]   (default 256 fp16; output: e5small_<precision>_<length>.mlpackage)
+fp32 is for Intel Macs, which have no Neural Engine and run Core ML on CPU or GPU.
 Pinned versions: see pyproject.toml (coremltools 9.0 is only validated up to torch 2.7).
 """
 import sys
@@ -10,6 +11,8 @@ import coremltools as ct
 from transformers import AutoModel, AutoTokenizer
 
 S = int(sys.argv[1]) if len(sys.argv) > 1 else 256
+PRECISION = sys.argv[2] if len(sys.argv) > 2 else "fp16"
+assert PRECISION in ("fp16", "fp32"), PRECISION
 NAME = "intfloat/multilingual-e5-small"
 
 base = AutoModel.from_pretrained(NAME, attn_implementation="eager", torch_dtype=torch.float32).eval()
@@ -39,11 +42,11 @@ model = ct.convert(
     traced,
     convert_to="mlprogram",
     minimum_deployment_target=ct.target.macOS15,
-    compute_precision=ct.precision.FLOAT16,
+    compute_precision=ct.precision.FLOAT16 if PRECISION == "fp16" else ct.precision.FLOAT32,
     inputs=[
         ct.TensorType("input_ids", shape=(1, S), dtype=np.int32),
         ct.TensorType("attention_mask", shape=(1, S), dtype=np.int32),
     ],
     outputs=[ct.TensorType("embedding")],
 )
-model.save(f"e5small_fp16_{S}.mlpackage")
+model.save(f"e5small_{PRECISION}_{S}.mlpackage")

@@ -22,7 +22,7 @@ SENTENCES = [
     "passage: Notes on semantic search: combine FTS5 ranking with vectors, 검색 품질은 한국어에서 약하다.",
 ]
 UNITS = ["CPU_ONLY", "CPU_AND_GPU", "CPU_AND_NE", "ALL"]
-INT32, FLOAT16 = 131104, 65552
+INT32, FLOAT16, FLOAT32 = 131104, 65552, 65568
 
 
 def sha256(path):
@@ -53,7 +53,7 @@ def check_contract(package):
     for name, array in inputs.items():
         assert list(array.shape) == [1, LENGTH] and array.dataType == INT32, f"{name}: {list(array.shape)} {array.dataType}"
     assert set(outputs) == {"embedding"}, f"outputs {sorted(outputs)}"
-    assert list(outputs["embedding"].shape) == [1, 384] and outputs["embedding"].dataType == FLOAT16, "embedding"
+    assert list(outputs["embedding"].shape) == [1, 384] and outputs["embedding"].dataType in (FLOAT16, FLOAT32), "embedding"
     print("ok contract")
 
 
